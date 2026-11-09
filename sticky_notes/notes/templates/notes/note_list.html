@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}My board | Sticky Notes{% endblock %}
+{% block content %}
+<section class="board-intro" aria-labelledby="board-title">
+  <div><h1 id="board-title">A place for your thoughts.</h1><p>Quick reminders, bright ideas, and everything in between.</p></div>
+  <p class="note-count">{{ notes|length }} note{{ notes|length|pluralize }}</p>
+</section>
+{% if notes %}
+<section class="notes-grid" aria-label="Saved notes">
+  {% for note in notes %}
+  <article class="note-card">
+    <p class="note-date">{{ note.updated_at|date:"j M Y" }}</p>
+    <h2><a href="{{ note.get_absolute_url }}">{{ note.title }}</a></h2>
+    <p class="note-preview">{{ note.content|truncatechars:180 }}</p>
+    <a class="read-note" href="{{ note.get_absolute_url }}" aria-label="Open note: {{ note.title }}">Open note <span aria-hidden="true">&rarr;</span></a>
+  </article>
+  {% endfor %}
+</section>
+{% else %}
+<section class="empty-board" aria-labelledby="empty-title">
+  <h2 id="empty-title">Your next idea starts here.</h2>
+  <p>There’s room for a reminder, a plan, or a thought you don’t want to lose.</p>
+  <a class="button" href="{% url 'notes:create' %}">Write your first note</a>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,67 @@
+python manage.py test notes -v 2
+Found 22 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: messages, staticfiles
+  Apply all migrations: admin, auth, contenttypes, notes, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying notes.0001_initial... OK
+  Applying sessions.0001_initial... OK
+System check identified no issues (0 silenced).
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+test_boundary_length_title_is_accepted (notes.test_part2.PartTwoRegressionTests.test_boundary_length_title_is_accepted) ... ok
+test_named_routes_resolve_to_expected_views (notes.test_part2.PartTwoRegressionTests.test_named_routes_resolve_to_expected_views) ... ok
+test_successful_create_shows_confirmation_after_redirect (notes.test_part2.PartTwoRegressionTests.test_successful_create_shows_confirmation_after_redirect) ... ok
+test_create_get_does_not_save (notes.tests.NoteTests.test_create_get_does_not_save) ... ok
+test_create_saves_and_redirects_to_detail (notes.tests.NoteTests.test_create_saves_and_redirects_to_detail) ... ok
+test_csrf_protects_create_update_and_delete (notes.tests.NoteTests.test_csrf_protects_create_update_and_delete) ... ok
+test_css_is_discovered (notes.tests.NoteTests.test_css_is_discovered) ... ok
+test_delete_get_only_displays_confirmation (notes.tests.NoteTests.test_delete_get_only_displays_confirmation) ... ok
+test_delete_post_removes_only_selected_note (notes.tests.NoteTests.test_delete_post_removes_only_selected_note) ... ok
+test_detail_shows_full_content (notes.tests.NoteTests.test_detail_shows_full_content) ... ok
+test_empty_board_explains_how_to_start (notes.tests.NoteTests.test_empty_board_explains_how_to_start) ... ok
+test_empty_post_is_bound_and_rejected (notes.tests.NoteTests.test_empty_post_is_bound_and_rejected) ... ok
+test_form_rejects_missing_content_and_long_title (notes.tests.NoteTests.test_form_rejects_missing_content_and_long_title) ... ok
+test_html_is_escaped_when_displayed (notes.tests.NoteTests.test_html_is_escaped_when_displayed) ... ok
+test_invalid_create_displays_errors_and_keeps_input (notes.tests.NoteTests.test_invalid_create_displays_errors_and_keeps_input) ... ok
+test_invalid_update_preserves_saved_note (notes.tests.NoteTests.test_invalid_update_preserves_saved_note) ... ok
+test_list_renders_notes_and_base_template (notes.tests.NoteTests.test_list_renders_notes_and_base_template) ... ok
+test_missing_notes_return_404 (notes.tests.NoteTests.test_missing_notes_return_404) ... ok
+test_model_string_and_timestamps (notes.tests.NoteTests.test_model_string_and_timestamps) ... ok
+test_unsupported_http_methods_are_rejected (notes.tests.NoteTests.test_unsupported_http_methods_are_rejected) ... ok
+test_update_get_prefills_form (notes.tests.NoteTests.test_update_get_prefills_form) ... ok
+test_update_persists_and_preserves_creation_time (notes.tests.NoteTests.test_update_persists_and_preserves_creation_time) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.319s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+
+python manage.py check
+System check identified no issues (0 silenced).
+
+python -m flake8 .
+
+The unchanged CRUD interface was browser-tested during Part 1: create, edit, reload, cancel deletion, confirm deletion; desktop and mobile. Public GitHub URL remains required.

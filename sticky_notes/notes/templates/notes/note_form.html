@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{% if note %}Edit note{% else %}New note{% endif %} | Sticky Notes{% endblock %}
+{% block content %}
+<a class="back-link" href="{% url 'notes:list' %}">&larr; My board</a>
+<section class="editor" aria-labelledby="editor-title">
+  <h1 id="editor-title">{% if note %}Make it yours.{% else %}What’s on your mind?{% endif %}</h1>
+  <p class="editor-intro">{% if note %}Edit your note below and save your changes.{% else %}Capture a thought now. Come back to it whenever you need.{% endif %}</p>
+  <form method="post">
+    {% csrf_token %}
+    {% if form.errors %}<div class="form-error" role="alert">Your note wasn’t saved. Please check the fields below.</div>{% endif %}
+    {{ form.non_field_errors }}
+    {{ form.as_p }}
+    <div class="actions"><button class="button" type="submit">{% if note %}Save changes{% else %}Save note{% endif %}</button>{% if note %}<a href="{{ note.get_absolute_url }}">Cancel</a>{% else %}<a href="{% url 'notes:list' %}">Cancel</a>{% endif %}</div>
+  </form>
+</section>
+{% endblock %}

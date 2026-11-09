@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Delete note | Sticky Notes{% endblock %}
+{% block content %}
+<section class="editor delete-panel" aria-labelledby="delete-title">
+  <h1 id="delete-title">Delete this note?</h1>
+  <p><strong>{{ note.title }}</strong> will be permanently removed. This action cannot be undone.</p>
+  <form method="post">{% csrf_token %}<div class="actions"><button type="submit" class="button button-danger">Delete note</button><a href="{{ note.get_absolute_url }}">Keep note</a></div></form>
+</section>
+{% endblock %}

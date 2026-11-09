@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}{{ note.title }} | Sticky Notes{% endblock %}
+{% block content %}
+<a class="back-link" href="{% url 'notes:list' %}">&larr; My board</a>
+<article class="note-sheet">
+  <h1>{{ note.title }}</h1>
+  <p class="detail-date">Created {{ note.created_at|date:"j M Y, H:i" }} &middot; Updated {{ note.updated_at|date:"j M Y, H:i" }}</p>
+  <div class="note-content">{{ note.content|linebreaks }}</div>
+  <div class="actions"><a class="button" href="{% url 'notes:update' note.pk %}">Edit note</a><a class="danger-link" href="{% url 'notes:delete' note.pk %}">Delete note</a></div>
+</article>
+{% endblock %}

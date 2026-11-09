@@ -1,0 +1,8 @@
+asgiref==3.13.0
+Django==5.2.19
+flake8==7.5.0
+mccabe==0.7.0
+pycodestyle==2.15.0
+pyflakes==4.1.0
+sqlparse==0.6.1
+tzdata==2026.6
