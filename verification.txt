@@ -64,4 +64,4 @@ System check identified no issues (0 silenced).
 
 python -m flake8 .
 
-The unchanged CRUD interface was browser-tested during Part 1: create, edit, reload, cancel deletion, confirm deletion; desktop and mobile. Public GitHub URL remains required.
+The unchanged CRUD interface was browser-tested during Part 1: create, edit, reload, cancel deletion, confirm deletion; desktop and mobile. Public repository: https://github.com/Khethelo01/django-sticky-notes
